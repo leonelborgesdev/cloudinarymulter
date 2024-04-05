@@ -27,6 +27,7 @@ export const uploadToCloudinary = async (req: Request, res: Response, next: Next
     if (!files || files.length === 0) {
       return next(new Error('No files provided'));
     }
+    console.log("files-----------", files)
     const cloudinaryUrls: string[] = [];
     for (const file of files) {
       const resizedBuffer: Buffer = await sharp(file.buffer)
