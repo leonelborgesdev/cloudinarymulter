@@ -18,13 +18,22 @@ class App {
   }
 
   private routes(): void {
-    // Define a POST route for file uploads using Multer middleware
-    this.express.post('/upload', upload.single('file'), (req: Request, res: Response) => {
-      if (!req.file) {
-        return res.status(400).json({ error: 'No file uploaded' });
-      }
-      res.json({ message: 'File uploaded successfully' });
-    });
+      this.express.post('/upload', upload.single('files'), (req: Request, res: Response) => {
+            // Define a POST route for file uploads using Multer middleware
+            console.log("entrooooooooooooo-------------------")
+            try {
+                console.log(req)
+            if (!req.files) {
+              return res.status(400).json({ error: 'No file uploaded' });
+            }
+            return res.json({ message: 'File uploaded successfully' });
+        } catch (error) {
+            console.log(error)
+            if (error instanceof Error) {
+                return res.json({ message: error.message})
+            }
+        }
+          });
   }
 }
 
