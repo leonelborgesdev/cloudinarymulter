@@ -3,7 +3,7 @@ import dotenv from "dotenv"
  import { v2 as cloudinary, UploadApiResponse, 
  UploadApiErrorResponse } from 'cloudinary';
  import sharp from 'sharp';
-import { NextFunction, Request } from "express";
+import { NextFunction, Request, Response } from "express";
 
 
  dotenv.config();
